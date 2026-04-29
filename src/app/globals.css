@@ -1,26 +1,285 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-brown: #6B4E45;
+  --color-brand-purple: #AB86B9;
+  --color-brand-green: #06AC2A;
+  --color-brand-silver: #C0C0C0;
+  --color-surface-light: #EFF3F7;
+  --color-surface-white: #FFFFFF;
+  --color-text-primary: #6B4E45;
+  --color-text-secondary: #6B7280;
+  --color-border-default: #E5E7EB;
+  --color-border-focus: #CBD5E1;
+  --font-alexandria: "Alexandria", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================
+   PERFORMANCE-FIRST BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-alexandria);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface-white);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-brand-purple);
+  color: white;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  transition: box-shadow 0.2s ease;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+[type="number"] {
+  -moz-appearance: textfield;
+}
+
+video {
+  background-color: var(--color-surface-light);
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ============================================
+   GPU ACCELERATION UTILITIES
+   ============================================ */
+
+/* Promote to own compositor layer ONLY during animation */
+.gpu-promote {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Isolate paint/layout without content-visibility flicker */
+.contain-paint {
+  contain: layout paint style;
+}
+
+/* ============================================
+   ANIMATIONS — GPU-only (transform + opacity)
+   Gated behind prefers-reduced-motion
+   ============================================ */
+
+/* Base: no animation for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Animations only for users who want motion */
+@media (prefers-reduced-motion: no-preference) {
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(28px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes fade-right {
+    from {
+      opacity: 0;
+      transform: translateX(-32px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.92);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes stagger-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(16px) scale(0.97);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      box-shadow: 0 0 0 0 rgba(171, 134, 185, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(171, 134, 185, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(171, 134, 185, 0);
+    }
+  }
+
+  /* Smooth entrance with GPU layer */
+  .anim-fade-up {
+    animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--anim-delay, 0s);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  .anim-fade-right {
+    animation: fade-right 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--anim-delay, 0s);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  .anim-scale-in {
+    animation: scale-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--anim-delay, 0s);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  .anim-slide-down {
+    animation: slide-down 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation-delay: var(--anim-delay, 0s);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  /* Stagger children with individual GPU layers */
+  .anim-stagger > * {
+    opacity: 0;
+    animation: stagger-reveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .anim-stagger > *:nth-child(1) { animation-delay: 0.06s; }
+  .anim-stagger > *:nth-child(2) { animation-delay: 0.12s; }
+  .anim-stagger > *:nth-child(3) { animation-delay: 0.18s; }
+  .anim-stagger > *:nth-child(4) { animation-delay: 0.24s; }
+  .anim-stagger > *:nth-child(5) { animation-delay: 0.30s; }
+  .anim-stagger > *:nth-child(6) { animation-delay: 0.36s; }
+  .anim-stagger > *:nth-child(7) { animation-delay: 0.42s; }
+  .anim-stagger > *:nth-child(8) { animation-delay: 0.48s; }
+
+  /* Hover lift — GPU composited, NO permanent will-change */
+  .hover-lift {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-3px) translateZ(0);
+    box-shadow: 0 12px 24px -8px rgba(107, 78, 69, 0.15),
+                0 4px 8px -4px rgba(171, 134, 185, 0.08);
+  }
+
+  /* Pulse glow CTA — smoother ring animation */
+  .pulse-glow {
+    animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    transform: translateZ(0);
+  }
+
+  /* Will-change cleanup after animation completes */
+  .anim-fade-up,
+  .anim-fade-right,
+  .anim-scale-in,
+  .anim-slide-down {
+    animation-fill-mode: both;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION FALLBACK (static visibility)
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up,
+  .anim-fade-right,
+  .anim-scale-in,
+  .anim-slide-down,
+  .anim-stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================
+   SHIMMER LOADING
+   ============================================ */
+.shimmer {
+  background: linear-gradient(
+    110deg,
+    var(--color-surface-light) 8%,
+    var(--color-surface-white) 18%,
+    var(--color-surface-light) 33%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
 }
