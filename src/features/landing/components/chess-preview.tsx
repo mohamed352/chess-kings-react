@@ -23,9 +23,9 @@ const leaderboard: Player[] = [
 
 export function ChessPreview() {
   return (
-    <section className="py-20 bg-white" dir="rtl">
+    <section className="py-[70px] bg-white" dir="rtl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-[25px] items-start">
 
           {/* Right Column: Chess Board Preview */}
           <div className="lg:col-span-8 bg-[#AB86B9] rounded-[24px] p-4 sm:p-6 shadow-xl">

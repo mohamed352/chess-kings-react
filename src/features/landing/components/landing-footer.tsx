@@ -72,13 +72,13 @@ export function LandingFooter() {
           {/* Left Column: Newsletter & Socials (Inside Gray Box) */}
           <div className="bg-[#F8F9FA] rounded-[24px] p-8">
             <h3 className="text-[15px] font-bold text-[#4A4A4A] mb-4 text-right">ابق مطلع على جديد شطارة</h3>
-            <form className="flex gap-2 mb-10" dir="rtl">
+            <form className="flex gap-[10px] mb-10" dir="rtl">
               <input
                 type="email"
                 placeholder="البريد الإلكتروني"
-                className="w-full px-4 py-2.5 rounded-lg bg-white border border-gray-200 text-[11px] focus:outline-none focus:border-[#AB86B9] transition-all text-right placeholder:text-gray-300"
+                className="w-full md:w-[302px] px-4 py-3 rounded-lg bg-white border border-gray-200 text-[11px] focus:outline-none focus:border-[#AB86B9] transition-all text-right placeholder:text-gray-300"
               />
-              <button className="whitespace-nowrap px-4 py-2.5 rounded-lg bg-[#AB86B9] text-white font-bold text-[11px] hover:bg-[#AB86B9]/90 transition-all shadow-sm">
+              <button className="whitespace-nowrap px-4 py-3 rounded-lg bg-[#AB86B9] text-white font-bold text-[11px] hover:bg-[#AB86B9]/90 transition-all shadow-sm">
                 إشترك الآن
               </button>
             </form>
