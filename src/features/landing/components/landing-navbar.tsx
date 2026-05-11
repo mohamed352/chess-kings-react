@@ -84,11 +84,11 @@ export function LandingNavbar() {
           <div className="flex lg:hidden items-center justify-between">
             <Link href="/">
               <Image
-                src="/assets/images/logon.png"
+                src="/assets/images/LOGO (1).png"
                 alt={SITE.name}
                 width={120}
                 height={50}
-                className="h-9 w-auto"
+                className="h-9 w-auto object-contain"
               />
             </Link>
 
@@ -117,11 +117,11 @@ export function LandingNavbar() {
           >
             <div className="flex items-center justify-between p-3 border-b border-brand-brown/10">
               <Image
-                src="/assets/images/logon.png"
+                src="/assets/images/LOGO (1).png"
                 alt={SITE.name}
                 width={120}
                 height={50}
-                className="h-10 w-auto"
+                className="h-10 w-auto object-contain"
               />
               <button
                 onClick={closeMobile}
