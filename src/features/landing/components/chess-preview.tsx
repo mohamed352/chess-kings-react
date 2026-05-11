@@ -28,7 +28,7 @@ export function ChessPreview() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
           {/* Right Column: Chess Board Preview */}
-          <div className="lg:col-span-8 bg-[#AB86B9] rounded-[24px] p-6 shadow-xl">
+          <div className="lg:col-span-8 bg-[#AB86B9] rounded-[24px] p-4 sm:p-6 shadow-xl">
             <div className="bg-white rounded-[16px] overflow-hidden flex flex-col lg:flex-row h-full min-h-[450px]">
               {/* Chess Board Side */}
               <div className="flex-[2.5] relative bg-[#E8DCC4]">
@@ -68,13 +68,13 @@ export function ChessPreview() {
             </div>
 
             {/* Bottom Actions */}
-            <div className="mt-6 grid grid-cols-2 gap-6">
-              <button className="bg-white text-gray-500 py-3 rounded-xl font-bold text-sm hover:bg-gray-50 shadow-sm flex items-center justify-center gap-3">
-                <span className="w-5 h-5 rounded border-2 border-[#AB86B9] bg-[#AB86B9]" />
+            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <button className="bg-white text-gray-500 py-3 px-4 rounded-xl font-bold text-xs sm:text-sm hover:bg-gray-50 shadow-sm flex items-center justify-center gap-3 transition-colors">
+                <span className="w-4 h-4 sm:w-5 sm:h-5 rounded border-2 border-[#AB86B9] bg-[#AB86B9]" />
                 <span>تحدي أصدقائك</span>
               </button>
-              <button className="bg-white text-gray-500 py-3 rounded-xl font-bold text-sm hover:bg-gray-50 shadow-sm flex items-center justify-center gap-3">
-                <span className="w-5 h-5 rounded border-2 border-[#AB86B9] bg-[#AB86B9]" />
+              <button className="bg-white text-gray-500 py-3 px-4 rounded-xl font-bold text-xs sm:text-sm hover:bg-gray-50 shadow-sm flex items-center justify-center gap-3 transition-colors">
+                <span className="w-4 h-4 sm:w-5 sm:h-5 rounded border-2 border-[#AB86B9] bg-[#AB86B9]" />
                 <span>تحدي أصدقائك</span>
               </button>
             </div>
@@ -113,11 +113,11 @@ export function ChessPreview() {
                   <div className="flex items-center gap-2">
                     {/* Saudi Flag Icon (Closer to name) */}
                     <div className="w-8 h-8 rounded bg-[#06AC2A] flex items-center justify-center overflow-hidden">
-                      <Image src="/assets/images/saaa.PNG" alt="KSA" width={24} height={16} className="object-contain" />
+                      <Image src="/assets/images/Country flags.png" alt="KSA" width={24} height={16} className="object-contain" />
                     </div>
                     {/* Avatar Icon (Outer left) */}
                     <div className="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center border border-gray-100">
-                      <Image src="/assets/images/IconAbout.png" alt="" width={18} height={18} />
+                      <Image src="/assets/images/trophy-dynamic-color.png" alt="" width={18} height={18} />
                     </div>
                   </div>
                 </div>
