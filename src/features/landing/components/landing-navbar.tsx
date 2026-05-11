@@ -7,9 +7,9 @@ import { SITE } from '@/config/constants';
 import { MdClose } from 'react-icons/md';
 
 const navLinks = [
-  { name: 'من نحن', href: '#about' },
-  { name: 'إلعب الآن', href: '#play' },
   { name: 'تعرف على شطارة', href: '#guide' },
+  { name: 'إلعب الآن', href: '#play' },
+  { name: 'من نحن', href: '#about' },
 ];
 
 export function LandingNavbar() {
@@ -31,45 +31,50 @@ export function LandingNavbar() {
   return (
     <>
       <header
-        className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-brand-brown/10 supports-[backdrop-filter]:bg-white/80"
+        className="sticky top-0 z-50 w-full bg-white border-b border-gray-100"
         style={{ willChange: 'transform' }}
       >
-        <nav className="max-w-6xl mx-auto px-4 py-3" dir="rtl">
+        <nav className="max-w-7xl mx-auto px-4 py-4" dir="rtl">
           {/* Desktop */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Link href="/" className="shrink-0 group">
+          <div className="hidden lg:flex items-center gap-8">
+            <Link href="/" className="shrink-0">
               <Image
-                src="/assets/images/logon.png"
+                src="/assets/images/looog.png"
                 alt={SITE.name}
-                width={120}
-                height={50}
-                className="h-9 w-auto transition-transform group-hover:scale-105"
+                width={150}
+                height={60}
+                className="h-12 w-auto object-contain"
               />
             </Link>
 
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="px-3 py-2 text-base font-semibold text-brand-purple hover:text-brand-brown transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
+            <div className="flex items-center gap-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-base font-bold text-gray-500 hover:text-brand-purple transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
 
             <div className="flex-1" />
 
             <div className="flex items-center gap-6">
               <Link
                 href="/login"
-                className="px-6 py-2 rounded-lg bg-brand-purple text-white font-black text-sm shadow-md shadow-brand-purple/20 hover:shadow-brand-purple/30 transition-all uppercase"
+                className="px-6 py-2 rounded bg-[#AB86B9] text-white font-bold text-sm shadow-sm hover:bg-[#AB86B9]/90 transition-all"
               >
                 تسجيل الدخول
               </Link>
-              
-              <button className="text-brand-brown hover:text-brand-purple transition-colors">
-                <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z" />
+
+              <button className="text-gray-700 hover:text-brand-purple transition-colors">
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                  <rect x="3" y="3" width="7" height="7" rx="1" />
+                  <rect x="14" y="3" width="7" height="7" rx="1" />
+                  <rect x="3" y="14" width="7" height="7" rx="1" />
+                  <rect x="14" y="14" width="7" height="7" rx="1" />
                 </svg>
               </button>
             </div>
