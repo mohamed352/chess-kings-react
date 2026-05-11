@@ -39,7 +39,7 @@ export function LandingNavbar() {
           <div className="hidden lg:flex items-center gap-8">
             <Link href="/" className="shrink-0">
               <Image
-                src="assets\images\logoapp.png"
+                src="/assets/images/logoapp.png"
                 alt={SITE.name}
                 width={150}
                 height={60}
