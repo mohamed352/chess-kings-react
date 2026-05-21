@@ -42,11 +42,11 @@ export default function LoginPage() {
                     }}
                 />
 
-                {/* Layer 2: Gradient overlay — أخف بكتير عشان الخلفية تبان */}
+                {/* Layer 2: Gradient overlay — تم تقليل الأبيض جداً من جهة اليمين لتظهر الخلفية من خلال الفورم */}
                 <div
                     className="absolute inset-0"
                     style={{
-                        background: "linear-gradient(to right, rgba(240, 240, 240, 0) 15%, rgba(240, 240, 240, 0.1) 35%, rgba(240, 240, 240, 0.35) 55%, rgba(240, 240, 240, 0.7) 75%, #f0f0f0 95%)",
+                        background: "linear-gradient(to right, rgba(240, 240, 240, 0) 30%, rgba(240, 240, 240, 0.05) 50%, rgba(240, 240, 240, 0.15) 75%, rgba(240, 240, 240, 0.3) 100%)",
                         zIndex: 2,
                     }}
                 />
@@ -88,11 +88,11 @@ export default function LoginPage() {
                     <div
                         className="w-full lg:w-[420px] shrink-0 rounded-[24px] py-8 flex flex-col justify-center"
                         style={{
-                            background: "rgba(255, 255, 255, 0.1)", // شفافية أعلى (0.1 بدل 0.2)
-                            backdropFilter: "blur(80px)", // blur أقوى
-                            WebkitBackdropFilter: "blur(80px)",
-                            boxShadow: "0 8px 32px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.2)",
-                            border: "1px solid rgba(255, 255, 255, 0.25)",
+                            background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.15) 100%)", // زجاج فيميه أغمق قليلاً من الأعلى مع أبيض خفيف للوضوح في الأسفل
+                            backdropFilter: "blur(24px)", // بلور متوسط لزجاج داكن
+                            WebkitBackdropFilter: "blur(24px)",
+                            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.2)", // ظلال وانعكاسات
+                            border: "1px solid rgba(255, 255, 255, 0.15)", // إطار خافت
                             zIndex: 10,
                         }}
                     >
