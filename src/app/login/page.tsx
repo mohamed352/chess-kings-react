@@ -1,48 +1,109 @@
-import { LoginVisual } from "@/features/auth/components/login-visual";
-import { LoginHeader } from "@/features/auth/components/login-header";
-import { LoginForm } from "@/features/auth/components/login-form";
+import React from "react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import LoginForm from "@/features/auth/login/components/LoginForm";
+
+export const metadata: Metadata = {
+    title: "تسجيل الدخول | شطارة شطرنج",
+    description: "سجّل دخولك إلى منصة شطارة للشطرنج",
+};
 
 export default function LoginPage() {
     return (
-        <main className="min-h-screen w-full flex flex-col lg:flex-row bg-gradient-to-r from-[#edf0f4] via-[#f5f7fa] to-white overflow-hidden" dir="ltr">
-            {/* Left Side - Visual (Chess pieces) - 55% width */}
-            <div className="hidden lg:flex w-full lg:w-[55%] min-h-screen items-center justify-center p-10 relative">
-                <LoginVisual />
-            </div>
+        <div className="w-full min-h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: "#f0f0f0" }}>
+            
+            <div 
+                className="relative w-full max-w-[1440px] min-h-screen flex flex-col"
+                style={{ padding: "32px 48px 40px 48px" }}
+                dir="ltr"
+            >
+                
+                {/* Layer 0: Background pattern */}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        backgroundImage: "url('/assets/images/image 291.png')",
+                        backgroundRepeat: "repeat",
+                        backgroundSize: "auto",
+                        opacity: 0.4,
+                        zIndex: 0,
+                    }}
+                />
 
-            {/* Right Side - Form Panel - 45% width with transparent glass backdrop */}
-            <div className="relative w-full lg:w-[45%] min-h-screen bg-white/50 backdrop-blur-[12px] flex flex-col justify-between items-center px-8 py-12 lg:px-16 lg:py-14 z-10 shadow-2xl">
-                {/* SVG Wavy Divider with blur filter for a feathered, seamless transition */}
-                <div className="absolute inset-y-0 -left-24 w-28 hidden lg:block pointer-events-none z-20 filter blur-xl opacity-95">
-                    <svg
-                        viewBox="0 0 100 1000"
-                        preserveAspectRatio="none"
-                        className="h-full w-full"
-                        xmlns="http://www.w3.org/2000/svg"
+                {/* Layer 1: Chess pieces */}
+                <div
+                    className="absolute bottom-0 left-0 right-0 h-[90%]"
+                    style={{
+                        backgroundImage: "url('/assets/images/image 295 (2).png')",
+                        backgroundSize: "cover",
+                        backgroundPosition: "left bottom",
+                        backgroundRepeat: "no-repeat",
+                        zIndex: 1,
+                    }}
+                />
+
+                {/* Layer 2: Gradient overlay - lighter */}
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        background: "linear-gradient(to right, rgba(240, 240, 240, 0) 20%, rgba(240, 240, 240, 0.1) 40%, rgba(240, 240, 240, 0.4) 60%, rgba(240, 240, 240, 0.8) 80%, #f0f0f0 100%)",
+                        zIndex: 2,
+                    }}
+                />
+
+                {/* TOP NAV */}
+                <nav className="relative z-10 flex flex-row items-center gap-2 justify-start w-full max-w-[1344px] mx-auto">
+                    <Link
+                        href="/"
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-md text-xs font-medium hover:opacity-80 transition-opacity"
+                        style={{ backgroundColor: "#E9D8F5", color: "#7B3FA0" }}
                     >
-                        <path
-                            d="M100,0 L100,1000 L85,1000 C75,850 95,700 80,500 C65,300 85,150 75,0 Z"
-                            fill="#ffffff"
-                        />
-                    </svg>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                            <path d="M15 18l-6-6 6-6" />
+                        </svg>
+                        العودة
+                    </Link>
+
+                    <button
+                        type="button"
+                        className="flex items-center gap-2 px-4 py-2 rounded-md text-white text-xs font-medium hover:opacity-90 transition-opacity"
+                        style={{ backgroundColor: "#7B2340" }}
+                    >
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19 22H5v-2h14v2M13 2a5 5 0 0 1 5 5c0 2.6-2 3.86-2 3.86L16 13H8l-.04-2.14C8 10.86 6 9.6 6 7a5 5 0 0 1 5-5h2M8 13v2l1 3h6l1-3v-2H8z" />
+                        </svg>
+                        النسخة التجريبية
+                    </button>
+                </nav>
+
+                {/* MAIN LAYOUT */}
+                <div
+                    className="relative z-10 flex flex-row items-center justify-between w-full max-w-[1344px] mx-auto flex-1"
+                    style={{ marginTop: "24px" }}
+                >
+                    
+                    <div className="hidden lg:block shrink-0" style={{ width: "55%" }} />
+
+                    {/* Right card - Glassmorphism */}
+                    <div
+                        className="w-full lg:w-[420px] shrink-0 rounded-[24px] py-8 flex flex-col justify-center"
+                        style={{
+                            background: "rgba(255, 255, 255, 0.2)",
+                            backdropFilter: "blur(50px)",
+                            WebkitBackdropFilter: "blur(50px)",
+                            boxShadow: "0 8px 32px rgba(0,0,0,0.08), inset 0 0 0 1px rgba(255,255,255,0.25)",
+                            border: "1px solid rgba(255, 255, 255, 0.35)",
+                            zIndex: 10,
+                        }}
+                    >
+                        <div className="w-full px-8">
+                            <LoginForm />
+                        </div>
+                    </div>
+
                 </div>
 
-                {/* Top Spacer */}
-                <div />
-
-                {/* Form & Header - explicitly in RTL for Arabic content */}
-                <div className="flex flex-col items-center gap-5 w-full my-auto" dir="rtl">
-                    <LoginHeader />
-                    <LoginForm />
-                </div>
-
-                {/* Footer Copyright */}
-                <div className="mt-8 text-center" dir="rtl">
-                    <p className="text-[11px] text-gray-400 font-alexandria">
-                        © 2025 شطارة. جميع الحقوق محفوظة.
-                    </p>
-                </div>
             </div>
-        </main>
+        </div>
     );
 }
