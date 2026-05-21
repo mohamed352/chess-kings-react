@@ -42,11 +42,11 @@ export default function LoginPage() {
                     }}
                 />
 
-                {/* Layer 2: Gradient overlay - lighter */}
+                {/* Layer 2: Gradient overlay — أخف بكتير عشان الخلفية تبان */}
                 <div
                     className="absolute inset-0"
                     style={{
-                        background: "linear-gradient(to right, rgba(240, 240, 240, 0) 20%, rgba(240, 240, 240, 0.1) 40%, rgba(240, 240, 240, 0.4) 60%, rgba(240, 240, 240, 0.8) 80%, #f0f0f0 100%)",
+                        background: "linear-gradient(to right, rgba(240, 240, 240, 0) 15%, rgba(240, 240, 240, 0.1) 35%, rgba(240, 240, 240, 0.35) 55%, rgba(240, 240, 240, 0.7) 75%, #f0f0f0 95%)",
                         zIndex: 2,
                     }}
                 />
@@ -84,15 +84,15 @@ export default function LoginPage() {
                     
                     <div className="hidden lg:block shrink-0" style={{ width: "55%" }} />
 
-                    {/* Right card - Glassmorphism */}
+                    {/* Right card — شفافية أعلى وblur أقوى */}
                     <div
                         className="w-full lg:w-[420px] shrink-0 rounded-[24px] py-8 flex flex-col justify-center"
                         style={{
-                            background: "rgba(255, 255, 255, 0.2)",
-                            backdropFilter: "blur(50px)",
-                            WebkitBackdropFilter: "blur(50px)",
-                            boxShadow: "0 8px 32px rgba(0,0,0,0.08), inset 0 0 0 1px rgba(255,255,255,0.25)",
-                            border: "1px solid rgba(255, 255, 255, 0.35)",
+                            background: "rgba(255, 255, 255, 0.1)", // شفافية أعلى (0.1 بدل 0.2)
+                            backdropFilter: "blur(80px)", // blur أقوى
+                            WebkitBackdropFilter: "blur(80px)",
+                            boxShadow: "0 8px 32px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.2)",
+                            border: "1px solid rgba(255, 255, 255, 0.25)",
                             zIndex: 10,
                         }}
                     >
