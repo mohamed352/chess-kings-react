@@ -39,7 +39,7 @@ export function LandingNavbar() {
           <div className="hidden lg:flex items-center gap-8">
             <Link href="/" className="shrink-0">
               <Image
-                src="/assets/images/looog.png"
+                src="/assets/images/LOGO (1).png"
                 alt={SITE.name}
                 width={150}
                 height={60}
@@ -52,7 +52,8 @@ export function LandingNavbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-base font-bold text-gray-500 hover:text-brand-purple transition-colors"
+                  className="text-base font-bold transition-colors hover:opacity-70"
+                  style={{ color: '#6B4E45' }}
                 >
                   {link.name}
                 </Link>
@@ -69,13 +70,14 @@ export function LandingNavbar() {
                 تسجيل الدخول
               </Link>
 
-              <button className="text-gray-700 hover:text-brand-purple transition-colors">
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                  <rect x="3" y="3" width="7" height="7" rx="1" />
-                  <rect x="14" y="3" width="7" height="7" rx="1" />
-                  <rect x="3" y="14" width="7" height="7" rx="1" />
-                  <rect x="14" y="14" width="7" height="7" rx="1" />
-                </svg>
+              <button className="text-gray-700 hover:opacity-75 transition-opacity flex items-center justify-center">
+                <Image
+                  src="/assets/images/Category.png"
+                  alt="قائمة"
+                  width={28}
+                  height={28}
+                  className="object-contain"
+                />
               </button>
             </div>
           </div>
@@ -84,11 +86,11 @@ export function LandingNavbar() {
           <div className="flex lg:hidden items-center justify-between">
             <Link href="/">
               <Image
-                src="/assets/images/logon.png"
+                src="/assets/images/LOGO (1).png"
                 alt={SITE.name}
                 width={120}
                 height={50}
-                className="h-9 w-auto"
+                className="h-9 w-auto object-contain"
               />
             </Link>
 
@@ -117,11 +119,11 @@ export function LandingNavbar() {
           >
             <div className="flex items-center justify-between p-3 border-b border-brand-brown/10">
               <Image
-                src="/assets/images/logon.png"
+                src="/assets/images/LOGO (1).png"
                 alt={SITE.name}
                 width={120}
                 height={50}
-                className="h-10 w-auto"
+                className="h-10 w-auto object-contain"
               />
               <button
                 onClick={closeMobile}
