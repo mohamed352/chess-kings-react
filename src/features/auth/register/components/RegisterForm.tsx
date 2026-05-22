@@ -71,8 +71,8 @@ export default function RegisterForm() {
             {dropOpen && (
                 <>
                     {/* Full-screen invisible backdrop to handle closing when clicking outside */}
-                    <div 
-                        className="fixed inset-0 z-40 bg-transparent cursor-default" 
+                    <div
+                        className="fixed inset-0 z-40 bg-transparent cursor-default"
                         onClick={() => setDropOpen(false)}
                     />
                     <div className="absolute top-full right-0 mt-1 w-48 rounded-xl border border-[#E5D7CE] bg-white shadow-lg z-50 overflow-hidden">
@@ -179,7 +179,7 @@ export default function RegisterForm() {
                 {/* Submit */}
                 <button
                     type="submit"
-                    className="w-full h-11 mt-1 rounded-full text-white text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity"
+                    className="w-full h-11 mt-1 rounded-xl text-white text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity"
                     style={{ backgroundColor: "#A67BC4" }}
                 >
                     أنشئ حساب جديد

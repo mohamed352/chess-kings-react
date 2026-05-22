@@ -18,7 +18,7 @@ export default function LoginForm() {
         <div className="flex flex-col w-full" dir="rtl">
 
             {/* Logo — centered only (SVG contains icon + text) */}
-            <div className="w-full flex justify-center mb-10 select-none">
+            <div className="w-full hidden lg:flex justify-center mb-10 select-none">
                 <Image
                     src="/assets/images/LOGO.svg"
                     alt="شطارة شطرنج"
@@ -30,7 +30,7 @@ export default function LoginForm() {
             </div>
 
             {/* Heading */}
-            <div className="w-full text-center mb-5">
+            <div className="w-full hidden lg:block text-center mb-5">
                 <h1 className="text-[18px] font-bold mb-2 leading-snug" style={{ color: "#5C4033" }}>
                     عضو في شطارة!
                 </h1>
