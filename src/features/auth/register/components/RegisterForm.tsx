@@ -9,14 +9,14 @@ import SocialLoginButton from "@/features/auth/login/components/SocialLoginButto
 /* ─── Country codes ─────────────────────────────────────── */
 const COUNTRIES = [
     { code: "sa", dial: "+966", name: "السعودية" },
-    { code: "eg", dial: "+20",  name: "مصر"       },
-    { code: "ae", dial: "+971", name: "الإمارات"  },
-    { code: "kw", dial: "+965", name: "الكويت"    },
-    { code: "qa", dial: "+974", name: "قطر"       },
-    { code: "bh", dial: "+973", name: "البحرين"   },
-    { code: "om", dial: "+968", name: "عُمان"     },
-    { code: "jo", dial: "+962", name: "الأردن"    },
-    { code: "lb", dial: "+961", name: "لبنان"     },
+    { code: "eg", dial: "+20", name: "مصر" },
+    { code: "ae", dial: "+971", name: "الإمارات" },
+    { code: "kw", dial: "+965", name: "الكويت" },
+    { code: "qa", dial: "+974", name: "قطر" },
+    { code: "bh", dial: "+973", name: "البحرين" },
+    { code: "om", dial: "+968", name: "عُمان" },
+    { code: "jo", dial: "+962", name: "الأردن" },
+    { code: "lb", dial: "+961", name: "لبنان" },
 ];
 
 const FlagImg = ({ code, size = 20 }: { code: string; size?: number }) => (
@@ -32,48 +32,67 @@ const FlagImg = ({ code, size = 20 }: { code: string; size?: number }) => (
 );
 
 export default function RegisterForm() {
-    const [fullName,  setFullName]  = useState("");
-    const [email,     setEmail]     = useState("");
-    const [phone,     setPhone]     = useState("");
-    const [password,  setPassword]  = useState("");
-    const [country,   setCountry]   = useState(COUNTRIES[0]);
-    const [dropOpen,  setDropOpen]  = useState(false);
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [password, setPassword] = useState("");
+    const [country, setCountry] = useState(COUNTRIES[0]);
+    const [dropOpen, setDropOpen] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
     };
 
-    /* country-code picker shown as leftSlot of the phone input */
+    /* country-code picker shown next to the phone input */
     const countryPicker = (
-        <div className="relative">
+        <div className="relative w-[95px] shrink-0">
             <button
                 type="button"
                 onClick={() => setDropOpen((v) => !v)}
-                className="flex items-center gap-1.5 px-3 h-11 text-sm text-[#5C4033] font-medium whitespace-nowrap select-none hover:bg-[#F7F0EC] transition-colors"
+                className="flex items-center justify-between w-full h-11 px-2 border border-[#E5D7CE] rounded-xl bg-white/70 backdrop-blur-sm
+                     focus:border-[#9A8174] focus:ring-1 focus:ring-[#9A8174]/20 focus:outline-none
+                     hover:bg-white/95 transition-all duration-200"
+                dir="ltr"
             >
-                <FlagImg code={country.code} size={20} />
-                <span className="text-xs text-[#8C7467]">{country.dial}</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-[#8C7467]">
-                    <path d="M6 9l6 6 6-6" />
+                {/* Left: arrow icon */}
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#8C7467] shrink-0">
+                    <path d="m6 9 6 6 6-6" />
                 </svg>
+
+                {/* Middle: dial code */}
+                <span className="text-xs text-[#5C4033] font-semibold tracking-tight">
+                    {country.dial}
+                </span>
+
+                {/* Right: flag */}
+                <FlagImg code={country.code} size={20} />
             </button>
 
             {dropOpen && (
-                <div className="absolute top-full left-0 mt-1 w-48 rounded-xl border border-[#E5D7CE] bg-white shadow-lg z-50 overflow-hidden">
-                    {COUNTRIES.map((c) => (
-                        <button
-                            key={c.code}
-                            type="button"
-                            onClick={() => { setCountry(c); setDropOpen(false); }}
-                            className={`w-full flex items-center gap-2.5 px-4 py-2 text-sm text-right text-[#5C4033] hover:bg-[#F7F0EC] transition-colors
-                                ${c.code === country.code ? "bg-[#F7F0EC] font-semibold" : ""}`}
-                        >
-                            <FlagImg code={c.code} size={20} />
-                            <span className="text-[#8C7467] text-xs">{c.dial}</span>
-                            <span className="flex-1 text-right text-xs">{c.name}</span>
-                        </button>
-                    ))}
-                </div>
+                <>
+                    {/* Full-screen invisible backdrop to handle closing when clicking outside */}
+                    <div 
+                        className="fixed inset-0 z-40 bg-transparent cursor-default" 
+                        onClick={() => setDropOpen(false)}
+                    />
+                    <div className="absolute top-full right-0 mt-1 w-48 rounded-xl border border-[#E5D7CE] bg-white shadow-lg z-50 overflow-hidden">
+                        {COUNTRIES.map((c) => (
+                            <button
+                                key={c.code}
+                                type="button"
+                                onClick={() => { setCountry(c); setDropOpen(false); }}
+                                className={`w-full flex items-center justify-between px-4 py-2.5 text-sm text-[#5C4033] hover:bg-[#F7F0EC] transition-colors
+                                    ${c.code === country.code ? "bg-[#F7F0EC] font-semibold" : ""}`}
+                            >
+                                <span className="text-xs font-medium">{c.name}</span>
+                                <div className="flex items-center gap-2" dir="ltr">
+                                    <span className="text-[#8C7467] text-xs font-semibold">{c.dial}</span>
+                                    <FlagImg code={c.code} size={20} />
+                                </div>
+                            </button>
+                        ))}
+                    </div>
+                </>
             )}
         </div>
     );
@@ -95,7 +114,7 @@ export default function RegisterForm() {
 
             {/* Heading */}
             <div className="w-full text-center mb-5">
-                <h1 className="text-[22px] font-bold mb-1.5 leading-snug" style={{ color: "#5C4033" }}>
+                <h1 className="text-[18px] font-bold mb-1.5 leading-snug" style={{ color: "#5C4033" }}>
                     عضو في شطارة!
                 </h1>
                 <p className="text-[13px] leading-6" style={{ color: "#6B4E45" }}>
@@ -127,18 +146,24 @@ export default function RegisterForm() {
                     autoComplete="email"
                     required
                 />
+                {/* Phone number row */}
+                <div className="flex gap-3 w-full">
+                    {/* Country code picker */}
+                    {countryPicker}
 
-                {/* Phone with country code */}
-                <RegisterInput
-                    icon="phone"
-                    type="tel"
-                    placeholder="رقم الهاتف"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    autoComplete="tel"
-                    required
-                    leftSlot={countryPicker}
-                />
+                    {/* Phone number input */}
+                    <div className="flex-1 min-w-0">
+                        <RegisterInput
+                            icon="phone"
+                            type="tel"
+                            placeholder="رقم الهاتف"
+                            value={phone}
+                            onChange={(e) => setPhone(e.target.value)}
+                            autoComplete="tel"
+                            required
+                        />
+                    </div>
+                </div>
 
                 {/* Password */}
                 <RegisterInput

@@ -31,7 +31,7 @@ export default function LoginForm() {
 
             {/* Heading */}
             <div className="w-full text-center mb-5">
-                <h1 className="text-[24px] font-bold mb-2 leading-snug" style={{ color: "#5C4033" }}>
+                <h1 className="text-[18px] font-bold mb-2 leading-snug" style={{ color: "#5C4033" }}>
                     عضو في شطارة!
                 </h1>
                 <p className="text-[14px] leading-6" style={{ color: "#6B4E45" }}>
