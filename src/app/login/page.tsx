@@ -10,89 +10,45 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
     return (
-        <div className="w-full min-h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: "#f0f0f0" }}>
-            
-            <div 
+        <div
+            className="w-full min-h-screen flex items-center justify-center relative overflow-hidden"
+            style={{
+                backgroundImage: "url('/assets/images/Login.png')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat"
+            }}
+        >
+
+            <div
                 className="relative w-full max-w-[1440px] min-h-screen flex flex-col"
-                style={{ padding: "32px 48px 40px 48px" }}
+                style={{ padding: "32px 48px 24px 48px" }}
                 dir="ltr"
             >
-                
-                {/* Layer 0: Background pattern */}
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        backgroundImage: "url('/assets/images/image 291.png')",
-                        backgroundRepeat: "repeat",
-                        backgroundSize: "auto",
-                        opacity: 0.4,
-                        zIndex: 0,
-                    }}
-                />
-
-                {/* Layer 1: Chess pieces */}
-                <div
-                    className="absolute bottom-0 left-0 right-0 h-[90%]"
-                    style={{
-                        backgroundImage: "url('/assets/images/image 295 (2).png')",
-                        backgroundSize: "cover",
-                        backgroundPosition: "left bottom",
-                        backgroundRepeat: "no-repeat",
-                        zIndex: 1,
-                    }}
-                />
-
-                {/* Layer 2: Gradient overlay — تم تقليل الأبيض جداً من جهة اليمين لتظهر الخلفية من خلال الفورم */}
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        background: "linear-gradient(to right, rgba(240, 240, 240, 0) 30%, rgba(240, 240, 240, 0.05) 50%, rgba(240, 240, 240, 0.15) 75%, rgba(240, 240, 240, 0.3) 100%)",
-                        zIndex: 2,
-                    }}
-                />
-
-                {/* TOP NAV */}
-                <nav className="relative z-10 flex flex-row items-center gap-2 justify-start w-full max-w-[1344px] mx-auto">
-                    <Link
-                        href="/"
-                        className="flex items-center gap-1.5 px-4 py-2 rounded-md text-xs font-medium hover:opacity-80 transition-opacity"
-                        style={{ backgroundColor: "#E9D8F5", color: "#7B3FA0" }}
-                    >
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                            <path d="M15 18l-6-6 6-6" />
-                        </svg>
-                        العودة
-                    </Link>
-
-                    <button
-                        type="button"
-                        className="flex items-center gap-2 px-4 py-2 rounded-md text-white text-xs font-medium hover:opacity-90 transition-opacity"
-                        style={{ backgroundColor: "#7B2340" }}
-                    >
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M19 22H5v-2h14v2M13 2a5 5 0 0 1 5 5c0 2.6-2 3.86-2 3.86L16 13H8l-.04-2.14C8 10.86 6 9.6 6 7a5 5 0 0 1 5-5h2M8 13v2l1 3h6l1-3v-2H8z" />
-                        </svg>
-                        النسخة التجريبية
-                    </button>
-                </nav>
 
                 {/* MAIN LAYOUT */}
                 <div
-                    className="relative z-10 flex flex-row items-center justify-between w-full max-w-[1344px] mx-auto flex-1"
+                    className="relative z-10 flex flex-row items-center justify-center gap-16 lg:gap-24 w-full max-w-[1344px] mx-auto flex-1"
                     style={{ marginTop: "24px" }}
                 >
-                    
-                    <div className="hidden lg:block shrink-0" style={{ width: "55%" }} />
 
-                    {/* Right card — شفافية أعلى وblur أقوى */}
+                    <div className="hidden lg:flex items-center justify-center shrink-0" style={{ width: "55%" }}>
+                        <img
+                            src="/assets/images/image 302.png"
+                            alt="Chess Pieces"
+                            className="w-full max-w-[540px] h-auto object-contain"
+                            style={{ maxHeight: "430px" }}
+                        />
+                    </div>
+
+                    {/* Right card — خلفية الصورة من التصميم الأصلي */}
                     <div
-                        className="w-full lg:w-[420px] shrink-0 rounded-[24px] py-8 flex flex-col justify-center"
+                        className="w-full lg:w-[390px] shrink-0 py-14 flex flex-col justify-center"
                         style={{
-                            background: "linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0.15) 100%)", // زجاج فيميه أغمق قليلاً من الأعلى مع أبيض خفيف للوضوح في الأسفل
-                            backdropFilter: "blur(24px)", // بلور متوسط لزجاج داكن
-                            WebkitBackdropFilter: "blur(24px)",
-                            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.2)", // ظلال وانعكاسات
-                            border: "1px solid rgba(255, 255, 255, 0.15)", // إطار خافت
+                            backgroundImage: "url('/assets/images/Left%20side%208%20Column.png')",
+                            backgroundSize: "100% 100%",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
                             zIndex: 10,
                         }}
                     >
@@ -102,6 +58,31 @@ export default function LoginPage() {
                     </div>
 
                 </div>
+
+                {/* FOOTER */}
+                <footer
+                    className="relative z-10 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-24 w-full max-w-[1344px] mx-auto pt-6 pb-2 text-[12px] font-medium"
+                    style={{ color: "#6b5042", opacity: 0.85 }}
+                >
+                    {/* Links Column - Aligns with Chess Pieces Image */}
+                    <div className="w-full lg:w-[55%] flex justify-center shrink-0">
+                        <div className="w-full max-w-[540px] flex justify-center lg:justify-start gap-6">
+                            <Link href="/privacy" className="hover:underline">
+                                سياسة الملكية الفكرية
+                            </Link>
+                            <Link href="/terms" className="hover:underline">
+                                الشروط و الأحكام
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/* Copyright Column - Aligns with LoginForm Card */}
+                    <div className="w-full lg:w-[390px] shrink-0 flex justify-center lg:justify-end text-center lg:text-right">
+                        <div>
+                            ميدان شطارة. جميع الحقوق محفوظة © 2026
+                        </div>
+                    </div>
+                </footer>
 
             </div>
         </div>

@@ -18,7 +18,7 @@ export default function LoginForm() {
         <div className="flex flex-col w-full" dir="rtl">
 
             {/* Logo — centered only (SVG contains icon + text) */}
-            <div className="w-full flex justify-center mb-5 select-none">
+            <div className="w-full flex justify-center mb-10 select-none">
                 <Image
                     src="/assets/images/LOGO.svg"
                     alt="شطارة شطرنج"
@@ -35,7 +35,7 @@ export default function LoginForm() {
                     عضو في شطارة!
                 </h1>
                 <p className="text-[14px] leading-6" style={{ color: "#6B4E45" }}>
-                    أهلاً بعودتك!، إستخدم بياناتك لتسجيل الدخول مباشرة
+                    أهلاً بعودتك!، إستخدم بياناتك لتسجيل الدخول
                 </p>
             </div>
 
@@ -43,12 +43,12 @@ export default function LoginForm() {
             <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3" noValidate>
 
                 <LoginInput
-                    icon="email"
-                    type="email"
-                    placeholder="البريد الإلكتروني"
+                    icon="username"
+                    type="text"
+                    placeholder="إسم المستخدم"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    autoComplete="email"
+                    autoComplete="username"
                     required
                 />
 
@@ -96,21 +96,17 @@ export default function LoginForm() {
             </div>
 
             {/* Register */}
-            <p className="w-full mt-4 text-sm text-gray-500 text-center">
+            <p className="w-full mt-4 text-[13px] text-[#6B4E45] font-medium text-center">
                 ليس لديك حساب؟{" "}
                 <Link
                     href="/register"
                     className="font-bold hover:underline transition-colors"
-                    style={{ color: "#7B3FA0" }}
+                    style={{ color: "#6B4E45" }}
                 >
                     أنشئ حساب جديد
                 </Link>
             </p>
 
-            {/* Footer */}
-            <p className="w-full mt-4 text-xs text-gray-400 text-center">
-                © 2025 شطارة. جميع الحقوق محفوظة.
-            </p>
         </div>
     );
 }

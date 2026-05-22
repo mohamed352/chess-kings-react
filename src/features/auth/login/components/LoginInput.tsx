@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, InputHTMLAttributes } from "react";
-import { Eye, EyeOff, Mail, Lock } from "lucide-react";
+import { Eye, EyeOff, AtSign, Lock, Mail } from "lucide-react";
 
 interface LoginInputProps extends InputHTMLAttributes<HTMLInputElement> {
-    icon: "email" | "password";
+    icon: "username" | "email" | "password";
     placeholder: string;
 }
 
@@ -23,16 +23,15 @@ export default function LoginInput({
     return (
         <div
             dir="rtl"
-            className="flex items-center w-full border border-gray-300 rounded-xl bg-white overflow-hidden
-                 focus-within:border-purple-300 focus-within:ring-2 focus-within:ring-purple-100
+            className="flex items-center w-full border border-[#E5D7CE] rounded-xl bg-white/70 backdrop-blur-sm overflow-hidden
+                 focus-within:border-[#9A8174] focus-within:ring-1 focus-within:ring-[#9A8174]/20
                  transition-all duration-200 h-11"
         >
-            {/* RIGHT: mail or lock icon */}
-            <div className="flex items-center justify-center w-10 h-full shrink-0 text-gray-400">
-                {icon === "email"
-                    ? <Mail size={16} strokeWidth={1.5} />
-                    : <Lock size={16} strokeWidth={1.5} />
-                }
+            {/* RIGHT: username/email or lock icon */}
+            <div className="flex items-center justify-center w-10 h-full shrink-0 text-[#8C7467]">
+                {icon === "username" && <AtSign size={18} strokeWidth={1.5} />}
+                {icon === "email" && <Mail size={18} strokeWidth={1.5} />}
+                {icon === "password" && <Lock size={18} strokeWidth={1.5} />}
             </div>
 
             {/* CENTER: Arabic input */}
@@ -40,7 +39,7 @@ export default function LoginInput({
                 {...props}
                 type={inputType}
                 placeholder={placeholder}
-                className="flex-1 h-full bg-transparent text-sm text-gray-700 placeholder-gray-400 outline-none text-right px-2"
+                className="flex-1 h-full bg-transparent text-sm text-[#5C4033] placeholder-[#8C7467]/70 outline-none text-right px-2 font-medium"
             />
 
             {/* LEFT: eye toggle (password only) */}
@@ -48,12 +47,12 @@ export default function LoginInput({
                 <button
                     type="button"
                     onClick={() => setShowPassword((v) => !v)}
-                    className="flex items-center justify-center w-10 h-full shrink-0 text-gray-400 hover:text-gray-600 transition-colors"
+                    className="flex items-center justify-center w-10 h-full shrink-0 text-[#8C7467] hover:text-[#5C4033] transition-colors"
                     aria-label={showPassword ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}
                 >
                     {showPassword
-                        ? <Eye size={16} strokeWidth={1.5} />
-                        : <EyeOff size={16} strokeWidth={1.5} />
+                        ? <Eye size={18} strokeWidth={1.5} />
+                        : <EyeOff size={18} strokeWidth={1.5} />
                     }
                 </button>
             )}
