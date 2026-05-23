@@ -90,19 +90,7 @@ export default function MobileAuthWrapper({ defaultTab }: MobileAuthWrapperProps
                             className="flex bg-[#F3EEF7] rounded-2xl p-1 w-full mb-6"
                             dir="rtl"
                         >
-                            {/* إنشاء حساب — appears on the RIGHT in RTL */}
-                            <button
-                                type="button"
-                                onClick={() => setActiveTab("register")}
-                                className={`flex-1 py-2.5 text-center text-sm font-bold rounded-xl transition-all duration-200 ${
-                                    activeTab === "register"
-                                        ? "bg-[#A67BC4] text-white shadow-sm"
-                                        : "text-[#8C7467] hover:text-[#5C4033]"
-                                }`}
-                            >
-                                إنشاء حساب
-                            </button>
-                            {/* تسجيل الدخول — appears on the LEFT in RTL */}
+                            {/* تسجيل الدخول — appears on the RIGHT in RTL */}
                             <button
                                 type="button"
                                 onClick={() => setActiveTab("login")}
@@ -113,6 +101,18 @@ export default function MobileAuthWrapper({ defaultTab }: MobileAuthWrapperProps
                                 }`}
                             >
                                 تسجيل الدخول
+                            </button>
+                            {/* إنشاء حساب — appears on the LEFT in RTL */}
+                            <button
+                                type="button"
+                                onClick={() => setActiveTab("register")}
+                                className={`flex-1 py-2.5 text-center text-sm font-bold rounded-xl transition-all duration-200 ${
+                                    activeTab === "register"
+                                        ? "bg-[#A67BC4] text-white shadow-sm"
+                                        : "text-[#8C7467] hover:text-[#5C4033]"
+                                }`}
+                            >
+                                إنشاء حساب
                             </button>
                         </div>
 
