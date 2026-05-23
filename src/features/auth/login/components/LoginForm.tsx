@@ -62,8 +62,31 @@ export default function LoginForm() {
                     required
                 />
 
-                {/* Forgot password */}
-                <div className="w-full flex justify-start mt-0.5">
+                {/* Remember me & Forgot password — Mobile only */}
+                <div className="w-full lg:hidden flex items-center justify-between mt-1">
+                    {/* Remember me checkbox */}
+                    <label className="flex items-center gap-2 cursor-pointer group">
+                        <input
+                            type="checkbox"
+                            className="w-4 h-4 rounded border-2 border-[#8C7467] cursor-pointer accent-[#A67BC4]"
+                        />
+                        <span className="text-xs text-[#6B4E45] group-hover:text-[#5C4033] transition-colors">
+                            تذكرني
+                        </span>
+                    </label>
+
+                    {/* Forgot password */}
+                    <Link
+                        href="/forgot-password"
+                        className="text-xs hover:underline transition-colors"
+                        style={{ color: "#A67BC4" }}
+                    >
+                        نسيت كلمة المرور؟
+                    </Link>
+                </div>
+
+                {/* Forgot password — Desktop only */}
+                <div className="w-full hidden lg:flex justify-start mt-0.5">
                     <Link
                         href="/forgot-password"
                         className="text-xs hover:underline transition-colors"
@@ -76,7 +99,7 @@ export default function LoginForm() {
                 {/* Submit */}
                 <button
                     type="submit"
-                    className="w-full h-11 mt-1 rounded-xl text-white text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity"
+                    className="w-full h-11 mt-3 rounded-xl text-white text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity"
                     style={{ backgroundColor: "#A67BC4" }}
                 >
                     تسجيل الدخول

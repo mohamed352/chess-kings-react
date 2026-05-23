@@ -45,7 +45,7 @@ export default function RegisterForm() {
 
     /* country-code picker shown next to the phone input */
     const countryPicker = (
-        <div className="relative w-[95px] shrink-0">
+        <div className="relative w-[110px] lg:w-[95px] shrink-0">
             <button
                 type="button"
                 onClick={() => setDropOpen((v) => !v)}
@@ -147,9 +147,11 @@ export default function RegisterForm() {
                     required
                 />
                 {/* Phone number row */}
-                <div className="flex gap-3 w-full">
-                    {/* Country code picker */}
-                    {countryPicker}
+                <div className="flex gap-2 lg:gap-3 w-full">
+                    {/* Country code picker — Desktop only */}
+                    <div className="hidden lg:block">
+                        {countryPicker}
+                    </div>
 
                     {/* Phone number input */}
                     <div className="flex-1 min-w-0">
@@ -176,10 +178,29 @@ export default function RegisterForm() {
                     required
                 />
 
+                {/* Terms and Conditions — Mobile only */}
+                <label className="flex lg:hidden items-start gap-2.5 cursor-pointer group mt-1">
+                    <input
+                        type="checkbox"
+                        required
+                        className="w-4 h-4 rounded border-2 border-[#8C7467] cursor-pointer accent-[#A67BC4] shrink-0 mt-0.5"
+                    />
+                    <span className="text-xs text-[#6B4E45] group-hover:text-[#5C4033] transition-colors leading-relaxed">
+                        أوافق على{" "}
+                        <Link
+                            href="/terms"
+                            className="font-semibold hover:underline"
+                            style={{ color: "#A67BC4" }}
+                        >
+                            الشروط والأحكام
+                        </Link>
+                    </span>
+                </label>
+
                 {/* Submit */}
                 <button
                     type="submit"
-                    className="w-full h-11 mt-1 rounded-xl text-white text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity"
+                    className="w-full h-11 mt-3 rounded-xl text-white text-sm font-semibold tracking-wide hover:opacity-90 transition-opacity"
                     style={{ backgroundColor: "#A67BC4" }}
                 >
                     أنشئ حساب جديد
