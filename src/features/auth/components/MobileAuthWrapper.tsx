@@ -64,7 +64,7 @@ export default function MobileAuthWrapper({ defaultTab }: MobileAuthWrapperProps
                         {/* Mobile header: logo + heading + dynamic subtitle */}
                         <div className="w-full flex flex-col items-center mb-6 select-none" dir="rtl">
                             <Image
-                                src="/assets/images/LOGO.svg"
+                                src="/assets/images/logoapp.png"
                                 alt="شطارة شطرنج"
                                 width={180}
                                 height={65}

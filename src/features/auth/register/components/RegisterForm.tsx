@@ -103,7 +103,7 @@ export default function RegisterForm() {
             {/* Logo */}
             <div className="w-full hidden lg:flex justify-center mb-7 select-none">
                 <Image
-                    src="/assets/images/LOGO.svg"
+                    src="/assets/images/logoapp.png"
                     alt="شطارة شطرنج"
                     width={200}
                     height={72}

@@ -20,7 +20,7 @@ export default function LoginForm() {
             {/* Logo — centered only (SVG contains icon + text) */}
             <div className="w-full hidden lg:flex justify-center mb-10 select-none">
                 <Image
-                    src="/assets/images/LOGO.svg"
+                    src="/assets/images/logoapp.png"
                     alt="شطارة شطرنج"
                     width={220}
                     height={80}
