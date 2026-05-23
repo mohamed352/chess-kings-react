@@ -39,7 +39,7 @@ export function LandingNavbar() {
           <div className="hidden lg:flex items-center gap-8">
             <Link href="/" className="shrink-0">
               <Image
-                src="/assets/images/LOGO (1).png"
+                src="/assets/images/logoapp.png"
                 alt={SITE.name}
                 width={150}
                 height={60}
@@ -86,7 +86,7 @@ export function LandingNavbar() {
           <div className="flex lg:hidden items-center justify-between">
             <Link href="/">
               <Image
-                src="/assets/images/LOGO (1).png"
+                src="/assets/images/logoapp.png"
                 alt={SITE.name}
                 width={120}
                 height={50}
@@ -119,7 +119,7 @@ export function LandingNavbar() {
           >
             <div className="flex items-center justify-between p-3 border-b border-brand-brown/10">
               <Image
-                src="/assets/images/LOGO (1).png"
+                src="/assets/images/logoapp.png"
                 alt={SITE.name}
                 width={120}
                 height={50}

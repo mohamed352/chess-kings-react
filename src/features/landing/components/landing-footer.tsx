@@ -31,7 +31,7 @@ export function LandingFooter() {
           <div className="text-right">
             <Link href="/" className="inline-block mb-8">
               <Image
-                src="/assets/images/LOGO (1).png"
+                src="/assets/images/logoapp.png"
                 alt={SITE.name}
                 width={150}
                 height={60}
