@@ -3,12 +3,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useCallback, useEffect } from 'react';
-import { SITE } from '@/config/constants';
+import { SITE, URLS } from '@/config/constants';
 import { MdClose } from 'react-icons/md';
 
 const navLinks = [
-  { name: 'تعرف على شطارة', href: '#guide' },
-  { name: 'إلعب الآن', href: '#play' },
+  { name: 'الدليل', href: URLS.guide, external: true },
   { name: 'من نحن', href: '#about' },
 ];
 
@@ -48,21 +47,43 @@ export function LandingNavbar() {
             </Link>
 
             <div className="flex items-center gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-base font-bold transition-colors hover:opacity-70"
-                  style={{ color: '#6B4E45' }}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base font-bold transition-colors hover:opacity-70"
+                    style={{ color: '#6B4E45' }}
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="text-base font-bold transition-colors hover:opacity-70"
+                    style={{ color: '#6B4E45' }}
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
             </div>
 
             <div className="flex-1" />
 
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-4">
+              <a
+                href={URLS.store}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-2 rounded bg-[#AB86B9] text-white font-bold text-sm shadow-sm hover:bg-[#AB86B9]/90 transition-all"
+              >
+                إلى المتجر
+              </a>
+
               <Link
                 href="/login"
                 className="px-6 py-2 rounded bg-[#AB86B9] text-white font-bold text-sm shadow-sm hover:bg-[#AB86B9]/90 transition-all"
@@ -135,16 +156,41 @@ export function LandingNavbar() {
             </div>
 
             <div className="flex flex-col p-3 gap-0.5">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={closeMobile}
-                  className="px-4 py-3 rounded-xl text-brand-brown hover:bg-brand-purple/10 hover:text-brand-purple font-semibold text-base transition-all"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) =>
+                link.external ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={closeMobile}
+                    className="px-4 py-3 rounded-xl text-brand-brown hover:bg-brand-purple/10 hover:text-brand-purple font-semibold text-base transition-all"
+                  >
+                    {link.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={closeMobile}
+                    className="px-4 py-3 rounded-xl text-brand-brown hover:bg-brand-purple/10 hover:text-brand-purple font-semibold text-base transition-all"
+                  >
+                    {link.name}
+                  </Link>
+                )
+              )}
+
+              <hr className="border-brand-brown/10 my-2" />
+
+              <a
+                href={URLS.store}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMobile}
+                className="flex items-center gap-2 px-4 py-3 rounded-xl bg-brand-purple text-white font-bold text-base hover:bg-brand-purple/90 transition-all"
+              >
+                إلى المتجر
+              </a>
 
               <hr className="border-brand-brown/10 my-2" />
 

@@ -1,28 +1,21 @@
-import { LandingNavbar } from '@/features/landing/components/landing-navbar';
-import { LandingHero } from '@/features/landing/components/landing-hero';
-import { StatsSection } from '@/features/landing/components/stats-section';
-import { ChessPreview } from '@/features/landing/components/chess-preview';
-import { LandingFooter } from '@/features/landing/components/landing-footer';
-import { VisitorTracker } from '@/features/visitor/components/visitor-tracker';
-import { VideoPopup } from '@/features/landing/components/video-popup';
+import type { Metadata } from 'next';
+import { HeroSection } from '@/features/home/components/hero-section';
+import { StoreSection } from '@/features/home/components/store-section';
+import { JoinGuideSectionWrapper } from '@/features/home/components/join-guide-section-wrapper';
+
+export const metadata: Metadata = {
+  title: 'الرئيسية | شطارة شطرنج',
+  description: 'الصفحة الرئيسية لمنصة شطارة — لعبة الشطرنج الاستراتيجية',
+};
 
 export default function HomePage() {
   return (
-    <main className="flex-1 flex flex-col min-h-screen bg-white">
-      <LandingNavbar />
-      <VisitorTracker />
-
-      <div className="flex-1 relative">
-        <LandingHero />
-        <StatsSection />
-        <ChessPreview />
+    <main className="flex-1 flex flex-col min-h-screen bg-white" dir="rtl">
+      <div className="flex-1 max-w-6xl mx-auto w-full px-4 md:px-6 py-4 flex flex-col gap-6">
+        <HeroSection />
+        <StoreSection />
+        <JoinGuideSectionWrapper />
       </div>
-
-      <LandingFooter />
-
-      {/* Auto-play intro video popup — shown once per session */}
-      <VideoPopup />
     </main>
   );
 }
-
