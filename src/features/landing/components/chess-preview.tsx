@@ -21,17 +21,17 @@ const leaderboard: Player[] = [
   { id: 6, name: 'Nour', handle: '@nour_off', rank: '#6', color: 'bg-[#F2F2F2]' },
 ];
 
-export function ChessPreview() {
+export function ShataraPreview() {
   return (
     <section className="py-[70px] bg-white" dir="rtl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-[25px] items-start">
 
-          {/* Right Column: Chess Board Preview */}
+          {/* Right Column: Shatara Board Preview */}
           <div className="lg:col-span-8 bg-[#AB86B9] rounded-[24px] p-4 sm:p-6 shadow-xl">
             <div className="bg-white rounded-[16px] overflow-hidden flex flex-col lg:flex-row">
               
-              {/* Chess Board Side */}
+              {/* Shatara Board Side */}
               <div className="w-full lg:flex-[2.5] flex flex-col bg-[#AB86B9]">
                 {/* Top Player Info */}
                 <div className="px-4 py-2.5 flex justify-between items-center text-white text-[11px] font-bold">

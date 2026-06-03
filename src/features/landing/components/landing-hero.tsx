@@ -53,7 +53,7 @@ export function LandingHero() {
           <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white to-transparent" />
           {/* Bottom fade */}
           <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white to-transparent" />
-          {/* Side fades - Wider to blend the chess board edges */}
+          {/* Side fades - Wider to blend the shatara board edges */}
           <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-white to-transparent" />
           <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-white to-transparent" />
         </div>

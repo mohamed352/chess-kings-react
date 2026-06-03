@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { LandingNavbar } from '@/features/landing/components/landing-navbar';
 import { LandingHero } from '@/features/landing/components/landing-hero';
 import { StatsSection } from '@/features/landing/components/stats-section';
-import { ChessPreview } from '@/features/landing/components/chess-preview';
+import { ShataraPreview } from '@/features/landing/components/chess-preview';
 import { LandingFooter } from '@/features/landing/components/landing-footer';
 import { VisitorTracker } from '@/features/visitor/components/visitor-tracker';
 import { VideoPopup } from '@/features/landing/components/video-popup';
@@ -21,7 +21,7 @@ export default function LandingPage() {
       <div className="flex-1 relative">
         <LandingHero />
         <StatsSection />
-        <ChessPreview />
+        <ShataraPreview />
       </div>
 
       <LandingFooter />

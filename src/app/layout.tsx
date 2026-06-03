@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE.name}`,
   },
   description: SITE.description,
-  keywords: ['شطارة', 'شطرنج', 'لعبة استراتيجية', 'Saudi chess', 'شطرنج سعودي'],
+  keywords: ['شطارة', 'شطرنج', 'لعبة استراتيجية', 'Saudi shatara', 'شطرنج سعودي'],
   authors: [{ name: SITE.nameEn }],
   openGraph: {
     title: `${SITE.name} | لعبة الشطرنج الاستراتيجية`,

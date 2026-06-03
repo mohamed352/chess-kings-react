@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 
-const SESSION_KEY = 'chess_kings_intro_seen';
+const SESSION_KEY = 'shatara_intro_seen';
 
 export function VideoPopup() {
   const [visible, setVisible] = useState(false);
